@@ -16,11 +16,8 @@ body {
   overflow-x: hidden;
 }
 
-.select-container {
-  margin-top: 20px;
-}
-
 .breed-select {
+  margin-top: 40px;
   width: 150px;
   margin-bottom: 10px;
   padding: 4px;
