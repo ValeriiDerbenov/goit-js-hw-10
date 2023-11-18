@@ -12,8 +12,6 @@ const elements = {
 
 const { selectEl, textMarkEl, loaderEl, errorEl } = elements;
 
-// loaderEl.classList.replace('loader', 'is-hidden');
-// errorEl.classList.add('is-hidden');
 textMarkEl.classList.add('is-hidden');
 
 selectEl.addEventListener('change', createMarkUp);
