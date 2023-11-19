@@ -6,21 +6,21 @@ axios.defaults.headers.common['x-api-key'] = API_KEY;
 import axios from 'axios';
 
 export function fetchBreeds() {
-  return fetch(`${URL}/breeds?api_key=${API_KEY}`).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
+  return axios.get(`${URL}/breeds?api_key=${API_KEY}`).then(res => {
+    if (res.status !== 200) {
+      throw new Error(res.status);
     }
-    return response.json();
+    return res.data;
   });
 }
 
 export function fetchCatByBreed(breedId) {
-  return fetch(
-    `${URL}/images/search?api_key=${API_KEY}&breed_ids=${breedId}`
-  ).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+  return axios
+    .get(`${URL}/images/search?api_key=${API_KEY}&breed_ids=${breedId}`)
+    .then(res => {
+      if (res.status !== 200) {
+        throw new Error(res.status);
+      }
+      return res.data;
+    });
 }
