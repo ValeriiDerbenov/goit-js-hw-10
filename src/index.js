@@ -32,7 +32,6 @@ function updateSelect(data) {
         select: selectEl,
         settings: {
           placeholderText: 'Choose a Breed, please!',
-          allowDeselect: true,
         },
       });
     })
