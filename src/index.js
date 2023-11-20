@@ -13,6 +13,7 @@ const elements = {
 const { selectEl, textMarkEl, loaderEl, errorEl } = elements;
 
 textMarkEl.classList.add('is-hidden');
+selectEl.classList.add('is-hidden');
 
 selectEl.addEventListener('change', createMarkUp);
 
@@ -29,6 +30,10 @@ function updateSelect(data) {
       selectEl.insertAdjacentHTML('beforeend', markSelect);
       new SlimSelect({
         select: selectEl,
+        settings: {
+          placeholderText: 'Choose a Breed, please!',
+          allowDeselect: true,
+        },
       });
     })
     .catch(onFetchError);
@@ -40,6 +45,7 @@ function createMarkUp(event) {
   textMarkEl.classList.add('is-hidden');
 
   const breedId = event.currentTarget.value;
+  console.log(event);
 
   fetchCatByBreed(breedId)
     .then(data => {
